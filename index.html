@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. https://www.webflow.com --><!-- Last Published: Sun Jan 01 2023 19:10:50 GMT+0000 (Coordinated Universal Time) -->
+<html
+  data-wf-domain="www.beepeth.com"
+  data-wf-page="63a45f17a1012b07c725c6aa"
+  data-wf-site="63a45f17a1012bad2a25c6a3"
+  lang="en"
+>
+  <head>
+    <meta charset="utf-8" />
+    <title>Jarvis Chain</title>
+    <meta
+      content="A Voice-Automated, Proof-of-Authority, Permissionless Blockchain."
+      name="description"
+    />
+    <meta content="Jarvis Chain" property="og:title" />
+    <meta
+      content="A Voice-Automated, Proof-of-Authority, Permissionless Blockchain."
+      property="og:description"
+    />
+    <meta
+      content="https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63a483448ec727fb5952ea63_1500x500%20(1).jpeg"
+      property="og:image"
+    />
+    <meta content="Jarvis Chain" property="twitter:title" />
+    <meta
+      content="A Voice-Automated, Proof-of-Authority, Permissionless Blockchain."
+      property="twitter:description"
+    />
+    <meta
+      content="https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63a483448ec727fb5952ea63_1500x500%20(1).jpeg"
+      property="twitter:image"
+    />
+    <meta property="og:type" content="website" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Webflow" name="generator" />
+    <link
+      href="./assets/css/as-dandy-site-a9efb7-3aa71847bcf4dc9489.webflow.88d7670c8.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
+      type="text/javascript"
+    ></script>
+    <script type="text/javascript">
+      WebFont.load({
+        google: {
+          families: [
+            "Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic",
+            "Inter:regular",
+            "Inter:regular,800",
+          ],
+        },
+      });
+    </script>
+    <!--[if lt IE 9
+      ]><script
+        src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"
+        type="text/javascript"
+      ></script
+    ><![endif]-->
+    <script type="text/javascript">
+      !(function (o, c) {
+        var n = c.documentElement,
+          t = " w-mod-";
+        (n.className += t + "js"),
+          ("ontouchstart" in o ||
+            (o.DocumentTouch && c instanceof DocumentTouch)) &&
+            (n.className += t + "touch");
+      })(window, document);
+    </script>
+    <link href="#" rel="shortcut icon" type="image/x-icon" />
+    <link href="#" rel="apple-touch-icon" />
+  </head>
+  <body class="body">
+    <div class="custom-code w-embed w-script">
+      <style>
+        html {
+          font-family: sans-serif;
+          line-height: 1.15;
+          -webkit-text-size-adjust: 100%;
+          -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+        .pointer-events-none {
+          pointer-events: none !important;
+        }
+
+        .pointer-events-auto {
+          pointer-events: auto;
+        }
+
+        .outline-text {
+          -webkit-text-fill-color: transparent;
+          -webkit-text-stroke: 2px white;
+        }
+
+        .left-arrow.w-slider-arrow-left {
+          display: none !important;
+        }
+
+        .right-arrow.w-slider-arrow-right {
+          display: none !important;
+        }
+
+        .panel.red.active {
+          background-color: rgb(252, 10, 84);
+          box-shadow: rgb(252 10 84) 8px 16px 120px;
+        }
+
+        .panel.orange.active {
+          background-color: rgb(255, 144, 0);
+          box-shadow: rgb(255 144 0) 8px 16px 120px;
+        }
+
+        .panel.turquoise.active {
+          background-color: rgb(255, 144, 0);
+          box-shadow: rgb(255 144 0) 8px 16px 120px;
+        }
+
+        .panel.blue.active {
+          background-color: rgb(114, 157, 237);
+          box-shadow: rgb(114 157 237) 8px 16px 120px;
+        }
+      </style>
+
+      <script>
+        // wait for page to finish loading
+        document.addEventListener("DOMContentLoaded", function () {
+          //send clicks to Webflow slider
+          document
+            .getElementById("arrow-right-new")
+            .addEventListener("click", slideRight);
+
+          document
+            .getElementById("arrow-left-new")
+            .addEventListener("click", slideLeft);
+
+          // next slide
+          function slideRight() {
+            const NUMBER_OF_SLIDES = document.getElementsByClassName(
+              "product-slide w-slide"
+            ).length;
+            const WIDTH_INCREMENT = 100 / NUMBER_OF_SLIDES; //calculate the width increase of the progress bar
+            document
+              .getElementsByClassName("right-arrow w-slider-arrow-right")[0]
+              .click();
+            progress(WIDTH_INCREMENT);
+          }
+
+          //previous slide
+          function slideLeft() {
+            const NUMBER_OF_SLIDES = document.getElementsByClassName(
+              "product-slide w-slide"
+            ).length;
+            const WIDTH_DECREMENT = -100 / NUMBER_OF_SLIDES; //calculate the width decrease of the progress bar
+            document
+              .getElementsByClassName("left-arrow w-slider-arrow-left")[0]
+              .click();
+            progress(WIDTH_DECREMENT);
+          }
+
+          // change progress bar width
+          function progress(change) {
+            const PROGRESS = document.querySelector("#slider-progress");
+            const DEFAULT_WIDTH =
+              100 /
+                document.getElementsByClassName("product-slide w-slide")
+                  .length +
+              "%";
+            if (!PROGRESS.style.width) {
+              // if width is not set, set width to 1 divided by number of  slides %
+              PROGRESS.style.width = DEFAULT_WIDTH;
+            }
+
+            const NEW_PROGRESS =
+              parseInt(PROGRESS.style.width) + change >= 100
+                ? 100 % (parseInt(PROGRESS.style.width) + change >= 100)
+                : parseInt(PROGRESS.style.width); //add or subtract change from previously set width
+
+            if (parseInt(PROGRESS.style.width) + change >= 100) {
+              // if new width is greater than 100 then wrap around to default
+              PROGRESS.style.width = DEFAULT_WIDTH;
+            } else if (parseInt(PROGRESS.style.width) + change <= 0) {
+              // if new width is less than 0 then wrap around to 100%
+              PROGRESS.style.width = "100%";
+            } else {
+              PROGRESS.style.width = NEW_PROGRESS + change + "%";
+            }
+          }
+
+          // cycle through panels and add class active to first panel then to the next panel
+
+          let PARTY_MODE;
+
+          function partyMode() {
+            const panel = [...document.getElementsByClassName("panel")];
+
+            panel[0].classList.add("active");
+            panel[3].classList.remove("active");
+            setTimeout(function () {
+              panel[0].classList.remove("active");
+              panel[1].classList.add("active");
+              setTimeout(function () {
+                panel[1].classList.remove("active");
+                panel[2].classList.add("active");
+                setTimeout(function () {
+                  panel[2].classList.remove("active");
+                  panel[3].classList.add("active");
+                  setTimeout(function () {
+                    panel[3].classList.remove("active");
+                  }, 200);
+                }, 200);
+              }, 200);
+            }, 200);
+          }
+
+          // when hovered over button activate partymode, when hover out deactive partymode
+          document
+            .getElementById("hero-cta")
+            .addEventListener("mouseover", function () {
+              const panel = [...document.getElementsByClassName("panel")];
+
+              panel[0].classList.add("active");
+              panel[3].classList.remove("active");
+              setTimeout(function () {
+                panel[0].classList.remove("active");
+                panel[1].classList.add("active");
+                setTimeout(function () {
+                  panel[1].classList.remove("active");
+                  panel[2].classList.add("active");
+                  setTimeout(function () {
+                    panel[2].classList.remove("active");
+                    panel[3].classList.add("active");
+                    setTimeout(function () {
+                      panel[3].classList.remove("active");
+                    }, 200);
+                  }, 200);
+                }, 200);
+              }, 200);
+              PARTY_MODE = setInterval(partyMode, 800);
+            });
+
+          document
+            .getElementById("hero-cta")
+            .addEventListener("mouseout", function () {
+              clearInterval(PARTY_MODE);
+
+              const panel = [...document.getElementsByClassName("panel")];
+              panel[0].classList.remove("active");
+              panel[1].classList.remove("active");
+              panel[2].classList.remove("active");
+              panel[3].classList.remove("active");
+            });
+
+          // only run if screen size is tablet or smaller
+          if (window.innerWidth <= 768) {
+            PARTY_MODE = setInterval(partyMode, 800);
+
+            //stop partyMode if window scrolled
+            window.addEventListener("scroll", function () {
+              //activate again if scrolled to top
+              if (window.scrollY === 0) {
+                PARTY_MODE = setInterval(partyMode, 800);
+              } else {
+                clearInterval(PARTY_MODE);
+              }
+            });
+          }
+        });
+      </script>
+    </div>
+    <nav class="nav">
+      <div data-w-id="2a6ea202-25d1-d09c-badd-7fd58de3b901" class="nav-wrapper">
+        <a
+          href="index.html"
+          aria-current="page"
+          class="link-block nav-link-block w-inline-block w--current"
+        >
+          <!-- <img
+            src="https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63af2d076c21e6482ae9dcdb_signal-2022-12-31-012125_003.jpeg"
+            loading="lazy"
+            width="48"
+            class="nav-logo-img"
+        /> -->
+        </a>
+        <div class="nav-links">
+          <a href="#" class="nav-link">whitepaper</a
+          ><a href="#" target="_blank" class="nav-link">chart</a
+          ><a href="#" target="_blank" class="nav-link">buy</a>
+          <div
+            data-hover="false"
+            data-delay="200"
+            class="dropdown-2 visibility-off w-dropdown"
+          >
+            <div class="dropdown-toggle-2 w-dropdown-toggle">
+              <div class="icon-2 w-icon-dropdown-toggle"></div>
+              <div class="dropdown-text">tokenomics</div>
+            </div>
+            <nav class="dropdown-list w-dropdown-list">
+              <a
+                href="index.html#tokenomics"
+                class="dropdown-link-2 w-dropdown-link"
+                >taxes</a
+              ><a
+                href="#"
+                target="_blank"
+                class="dropdown-link-2 w-dropdown-link"
+                >supply &amp; emissions</a
+              >
+            </nav>
+          </div>
+        </div>
+        <div class="socials-wrapper navbar-socials-wrapper">
+          <a
+            id="w-node-_2a6ea202-25d1-d09c-badd-7fd58de3b914-8de3b900"
+            href="https://t.me/BeepERC"
+            target="_blank"
+            class="w-inline-block"
+            ><img
+              src="./assets/images/socials/63a45f17a1012bbc1925c6d1_telegram white.png"
+              loading="lazy"
+              width="24"
+              alt="" /></a
+          ><a
+            id="w-node-_2a6ea202-25d1-d09c-badd-7fd58de3b916-8de3b900"
+            href="#"
+            target="_blank"
+            class="w-inline-block"
+            ><img
+              src="./assets/images/socials/63a45f17a1012b520825c6cf_twitter white.png"
+              loading="lazy"
+              width="24"
+              alt="" /></a
+          ><a href="#" target="_blank" class="w-inline-block"
+            ><img
+              src="./assets/images/socials/63a45f17a1012bfef625c6d4_medium whtie.png"
+              loading="lazy"
+              width="24"
+              alt=""
+          /></a>
+        </div>
+      </div>
+    </nav>
+    <div class="page-wrapper">
+      <header class="hero-section">
+        <div class="panel-background">
+          <div class="panel red"></div>
+          <div class="panel orange"></div>
+          <div class="panel turquoise"></div>
+          <div class="panel blue"></div>
+        </div>
+        <div class="hero-content pointer-events-none">
+          <div class="hero-row">
+            <h1
+              data-w-id="00bd46ad-fff0-71ea-b84d-b03edf2d1d25"
+              style="opacity: 0"
+              class="hero-heading"
+            >
+              JARVIS CHAIN
+            </h1>
+            <p
+              data-w-id="1106a76f-b998-f5da-f0a4-b76c9bb73c64"
+              style="opacity: 0"
+              class="hero-subtitle"
+            >
+              A Voice-Automated, Proof-of-Authority, Permissionless Blockchain.
+            </p>
+            <a
+              id="hero-cta"
+              data-w-id="42744cb6-9aca-e3c2-34dd-cf59a917092c"
+              style="opacity: 0"
+              href="#"
+              class="button white hero-margin pointer-events-auto w-button"
+              >Documentation</a
+            >
+          </div>
+        </div>
+      </header>
+      <section class="mission-section contained">
+        <div class="mission-tag">JARVIS CHAIN</div>
+        <div class="mission-section-row">
+          <h3
+            data-w-id="94efd85a-53a7-5ac0-ef9d-c30f85ec7518"
+            style="opacity: 0"
+            class="section-heading"
+          >
+            What is Jarvis Chain?
+          </h3>
+        </div>
+        <div class="mission-section-row">
+          <p
+            data-w-id="9165d71b-29b2-4222-e9ae-7e0e71bad76c"
+            style="opacity: 0"
+            class="section-paragraph"
+          >
+            Jarvis Chain is a Layer 1 blockchain platform that is a fork of
+            Ethereum and is powered by voice automation. It has a
+            Proof-of-Authority consensus mechanism, and it is permissionless,
+            meaning anyone can create a new account or transaction on the
+            network.
+          </p>
+        </div>
+        <div class="mission-section-row full-width">
+          <img
+            src="https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63a45f17a1012b9ae625c6bd_ribbon-graph%20(1)-cropped.svg"
+            loading="lazy"
+            style="opacity: 0"
+            data-w-id="2a85009e-0f0a-07c6-7f07-ad831472d730"
+            alt=""
+            class="full-width-image"
+          />
+        </div>
+      </section>
+      <section class="prouducts-section">
+        <h2 class="product-section">Features</h2>
+        <div
+          data-w-id="7ee0a216-d4cc-94b8-e7e8-49705554d753"
+          style="opacity: 0"
+          class="products-wrapper"
+        >
+          <div
+            data-delay="0"
+            data-animation="over"
+            class="product-slider w-slider"
+            data-autoplay="true"
+            data-easing="ease"
+            data-hide-arrows="false"
+            data-disable-swipe="false"
+            data-autoplay-limit="0"
+            data-nav-spacing="3"
+            data-duration="3000"
+            data-infinite="true"
+          >
+            <div class="mask w-slider-mask">
+              <div class="product-slide w-slide">
+                <div class="product-inner-wrapper contained">
+                  <div class="left-product-section">
+                    <div class="product-content-wrapper">
+                      <div class="product-content">
+                        <h2 class="product-title">VOICE AUTOMATION</h2>
+                        <p class="product-subtitle">
+                          Jarvis Chain utilizes voice-automation technology,
+                          which allows users to interact with the network using
+                          natural language. This technology is powered by
+                          artificial intelligence (AI), which makes it easier
+                          for users to interact with the network and perform
+                          tasks such as creating transactions, checking
+                          balances, and more.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="right-product-section">
+                    <div class="product-card-wrapper blue-gradient">
+                      <div class="bordered-container blue">
+                        <div class="product-tag">01</div>
+                        <div class="product-logo">
+                          <img
+                            src="./assets/images/microphone.png"
+                            loading="lazy"
+                            alt="Aave Logo"
+                            class="sized-product-logo"
+                          />
+                        </div>
+                        <div class="product-info-wrapper"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="products-marquee-wrapper">
+                  <div class="product-marquee-container">
+                    <div class="product-maquee scroll-left">
+                      <h3 class="marquee-text">JARVIS CHAIN</h3>
+                      <h3 class="marquee-text">JARVIS CHAIN</h3>
+                    </div>
+                  </div>
+                  <div class="w-embed">
+                    <style>
+                      .scroll-left {
+                        position: absolute;
+                        white-space: nowrap;
+                        will-change: transform;
+                        animation: scroll-left 30s linear infinite;
+                      }
+
+                      @keyframes scroll-left {
+                        from {
+                          transform: translateX(0);
+                        }
+                        to {
+                          transform: translateX(-50%);
+                        }
+                      }
+                    </style>
+                  </div>
+                </div>
+              </div>
+              <div class="product-slide w-slide">
+                <div class="products-marquee-wrapper">
+                  <div class="product-marquee-container">
+                    <div class="product-maquee scroll-left">
+                      <h3 class="marquee-text">JARVIS CHAIN</h3>
+                      <h3 class="marquee-text">JARVIS CHAIN</h3>
+                    </div>
+                  </div>
+                  <div class="w-embed">
+                    <style>
+                      .scroll-left {
+                        position: absolute;
+                        white-space: nowrap;
+                        will-change: transform;
+                        animation: scroll-left 30s linear infinite;
+                      }
+
+                      @keyframes scroll-left {
+                        from {
+                          transform: translateX(0);
+                        }
+                        to {
+                          transform: translateX(-50%);
+                        }
+                      }
+                    </style>
+                  </div>
+                </div>
+                <div class="product-inner-wrapper contained">
+                  <div class="left-product-section">
+                    <div class="product-content-wrapper">
+                      <div class="product-content">
+                        <h2 class="product-title">ChatGPT INTEGRATION</h2>
+                        <p class="product-subtitle">
+                          ChatGPT's openAI technology is used to improve the
+                          security of a blockchain by providing an additional
+                          layer of protection against malicious actors. It can
+                          be used to detect suspicious activity on the
+                          blockchain and alert the network to potential
+                          malicious activities. It can also be used to identify
+                          and authenticate users, further protecting the network
+                          from fraudulent activities.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="right-product-section">
+                    <div class="product-card-wrapper red-gradient">
+                      <div class="bordered-container red">
+                        <div class="product-tag red">02</div>
+                        <div class="product-logo">
+                          <img
+                            src="./assets/images/ai.png"
+                            loading="lazy"
+                            alt="Aave Logo"
+                            class="sized-product-logo"
+                          />
+                        </div>
+                        <div class="product-info-wrapper"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-slide w-slide">
+                <div class="product-inner-wrapper contained">
+                  <div class="left-product-section">
+                    <div class="product-content-wrapper">
+                      <div class="product-content">
+                        <h2 class="product-title">SECURE</h2>
+                        <p class="product-subtitle">
+                          Jarvis Chain is designed to be highly secure. The
+                          Proof-of-Authority consensus mechanism ensures that
+                          only validators that are chosen by the network’s users
+                          are allowed to validate transactions. The network also
+                          utilizes advanced cryptography and other security
+                          measures to ensure that user data is safe and secure.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="right-product-section">
+                    <div class="product-card-wrapper orange-logo">
+                      <div class="bordered-container orange">
+                        <div class="product-tag orange">03</div>
+                        <div class="product-logo">
+                          <img
+                            src="./assets/images/secure.png"
+                            loading="lazy"
+                            alt="Aave Logo"
+                            class="sized-product-logo"
+                          />
+                        </div>
+                        <div class="product-info-wrapper"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="products-marquee-wrapper">
+                  <div class="product-marquee-container">
+                    <div class="product-maquee scroll-left">
+                      <h3 class="marquee-text">JARVIS CHAIN</h3>
+                      <h3 class="marquee-text">JARVIS CHAIN</h3>
+                    </div>
+                  </div>
+                  <div class="w-embed">
+                    <style>
+                      .scroll-left {
+                        position: absolute;
+                        white-space: nowrap;
+                        will-change: transform;
+                        animation: scroll-left 30s linear infinite;
+                      }
+
+                      @keyframes scroll-left {
+                        from {
+                          transform: translateX(0);
+                        }
+                        to {
+                          transform: translateX(-50%);
+                        }
+                      }
+                    </style>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              id="left-arrow-original"
+              class="left-arrow w-slider-arrow-left"
+            >
+              <div class="w-icon-slider-left"></div>
+            </div>
+            <div class="right-arrow w-slider-arrow-right">
+              <div class="w-icon-slider-right"></div>
+            </div>
+            <div class="slide-nav w-slider-nav w-round"></div>
+          </div>
+        </div>
+        <div class="products-mobile">
+          <div class="product-card-wrapper blue-gradient">
+            <div class="bordered-container blue">
+              <div class="product-tag">VOICE AUTOMATION</div>
+              <div class="product-logo">
+                <img
+                  src="./assets/images/microphone.png"
+                  loading="lazy"
+                  alt="Aave Logo"
+                  class="sized-product-logo"
+                />
+              </div>
+              <div class="product-info-wrapper"></div>
+            </div>
+          </div>
+          <div class="product-card-wrapper dark-blue-gradient">
+            <div class="bordered-container dark-blue">
+              <div class="product-tag">ChatGPT INTEGRATION</div>
+              <div class="product-logo">
+                <img
+                  src="./assets/images/ai.png"
+                  loading="lazy"
+                  alt="Aave Logo"
+                  class="sized-product-logo"
+                />
+              </div>
+              <div class="product-info-wrapper"></div>
+            </div>
+          </div>
+          <div class="product-card-wrapper red-gradient">
+            <div class="bordered-container red">
+              <div class="product-tag red">SECURE</div>
+              <div class="product-logo">
+                <img
+                  src="./assets/images/secure.png"
+                  loading="lazy"
+                  alt="Aave Logo"
+                  class="sized-product-logo"
+                />
+              </div>
+              <div class="product-info-wrapper"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="tokenomics" class="mission-section contained">
+        <img
+          src="https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63af2d6f9c26956d9eb131d4_Screenshot%202022-12-31%20at%2001.25.52.png"
+          loading="lazy"
+          sizes="(max-width: 479px) 100vw, 341.29833984375px"
+          width="280"
+          srcset="
+            https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63af2d6f9c26956d9eb131d4_Screenshot%202022-12-31%20at%2001.25.52-p-500.png  500w,
+            https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63af2d6f9c26956d9eb131d4_Screenshot%202022-12-31%20at%2001.25.52-p-800.png  800w,
+            https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63af2d6f9c26956d9eb131d4_Screenshot%202022-12-31%20at%2001.25.52.png       1202w
+          "
+          alt=""
+          class="ission-section-img-1"
+        /><img
+          src="https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63af2d6f30817de42ad21c63_Screenshot%202022-12-31%20at%2001.25.38.png"
+          loading="lazy"
+          width="300"
+          sizes="(max-width: 479px) 100vw, (max-width: 767px) 73vw, (max-width: 991px) 46vw, 35vw"
+          srcset="
+            https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63af2d6f30817de42ad21c63_Screenshot%202022-12-31%20at%2001.25.38-p-500.png   500w,
+            https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63af2d6f30817de42ad21c63_Screenshot%202022-12-31%20at%2001.25.38-p-800.png   800w,
+            https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63af2d6f30817de42ad21c63_Screenshot%202022-12-31%20at%2001.25.38-p-1080.png 1080w,
+            https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63af2d6f30817de42ad21c63_Screenshot%202022-12-31%20at%2001.25.38.png        1194w
+          "
+          alt=""
+          class="ission-section-img-1 _2"
+        />
+        <section class="features-metrics wf-section">
+          <div class="container">
+            <div class="features-wrapper">
+              <div
+                id="w-node-_0733390f-b226-d402-b528-d3069f236ed0-c725c6aa"
+                class="features-block"
+              >
+                <div class="features-title">
+                  <span class="features-title-small">$JAR</span>
+                </div>
+                <div>
+                  $JAR is the governance token for Jarvis Chain and a
+                  fundraising tool for the development of in-house utility
+                  products.
+                </div>
+              </div>
+              <div
+                id="w-node-_0733390f-b226-d402-b528-d3069f236ebd-c725c6aa"
+                class="features-block"
+              >
+                <div class="features-title">
+                  Tokenomics<span class="features-title-small"></span>
+                </div>
+                <!-- <div>The future</div> -->
+              </div>
+              <!-- <div class="features-block">
+                <div class="features-title">
+                  Emotion is<span class="features-title-small"></span>
+                </div>
+                <div>The past</div>
+              </div> -->
+            </div>
+          </div>
+          <div
+            data-poster-url="https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63af2c8d9c269595dab11d3a_signal-2022-12-31-012125_002-poster-00001.jpg"
+            data-video-urls="https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63af2c8d9c269595dab11d3a_signal-2022-12-31-012125_002-transcode.mp4,https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63af2c8d9c269595dab11d3a_signal-2022-12-31-012125_002-transcode.webm"
+            data-autoplay="true"
+            data-loop="true"
+            data-wf-ignore="true"
+            class="background-video w-background-video w-background-video-atom"
+          >
+            <video
+              id="f8d0e74b-df8f-a793-7aa8-a4474c0ba1c3-video"
+              autoplay=""
+              loop=""
+              style="
+                background-image: url('https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63af2c8d9c269595dab11d3a_signal-2022-12-31-012125_002-poster-00001.jpg');
+              "
+              muted=""
+              playsinline=""
+              data-wf-ignore="true"
+              data-object-fit="cover"
+            >
+              <source
+                src="https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63af2c8d9c269595dab11d3a_signal-2022-12-31-012125_002-transcode.mp4"
+                data-wf-ignore="true"
+              />
+              <source
+                src="https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63af2c8d9c269595dab11d3a_signal-2022-12-31-012125_002-transcode.webm"
+                data-wf-ignore="true"
+              /></video
+            ><noscript
+              ><style>
+                [data-wf-bgvideo-fallback-img] {
+                  display: none;
+                }
+                @media (prefers-reduced-motion: reduce) {
+                  [data-wf-bgvideo-fallback-img] {
+                    position: absolute;
+                    z-index: -100;
+                    display: inline-block;
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                  }
+                }</style
+              ><img
+                data-wf-bgvideo-fallback-img="true"
+                src="https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63af2c8d9c269595dab11d3a_signal-2022-12-31-012125_002-poster-00001.jpg"
+                alt=""
+            /></noscript>
+            <div aria-live="polite">
+              <button
+                type="button"
+                data-w-bg-video-control="true"
+                aria-controls="f8d0e74b-df8f-a793-7aa8-a4474c0ba1c3-video"
+                class="w-backgroundvideo-backgroundvideoplaypausebutton w-background-video--control"
+              >
+                <span
+                  ><img
+                    src="https://assets.website-files.com/6022af993a6b2191db3ed10c/628299f8aa233b83918e24fd_Pause.svg"
+                    alt="Pause video" /></span
+                ><span hidden=""
+                  ><img
+                    src="https://assets.website-files.com/6022af993a6b2191db3ed10c/628298b20ae0236682d4b87f_Play-24.svg"
+                    alt="Play video"
+                /></span>
+              </button>
+            </div>
+          </div>
+        </section>
+        <div class="mission-section-row">
+          <a href="#" target="_blank" class="button visibility-off w-button"
+            >supply &amp; emissions</a
+          >
+        </div>
+        <div class="mission-section-row full-width"></div>
+      </section>
+      <section class="investors-section">
+        <h2 class="investor-section">roadmap</h2>
+        <div class="investor-grid contained">
+          <a
+            id="w-node-_6764d747-6a2b-f6b5-35c6-5c50bba435b6-c725c6aa"
+            href="index.html#"
+            class="investor-card w-inline-block"
+            ><img
+              src="./assets/images/number-1.png"
+              loading="lazy"
+              width="72"
+              alt=""
+            />
+            <div class="investor-card-text-wrapper">
+              <h3 class="text-white">PHASE 1</h3>
+              <p class="text-white">$JC Launch on Uniswap</p>
+              <p class="text-white">2000 Telegram Members</p>
+              <p class="text-white">CoinGecko / CMC Listings</p>
+            </div></a
+          ><a
+            id="w-node-_707f7bc1-172a-e548-352c-57be77e6fa56-c725c6aa"
+            href="index.html#"
+            class="investor-card w-inline-block"
+            ><img
+              src="./assets/images/number-2.png"
+              loading="lazy"
+              alt="Dragonfly Capital Logo"
+              height="40"
+              class="investor-logo"
+            />
+            <div class="investor-card-text-wrapper">
+              <h3 class="text-white">PHASE 2</h3>
+              <p class="text-white">Release Jarvis Chain Testnet</p>
+              <p class="text-white">ContractChecker Blockchain Audit</p>
+              <p class="text-white">$JAR Github Made Public</p>
+              <p class="text-white">Blockchain Explorer</p>
+            </div></a
+          ><a
+            id="w-node-_864dcae9-93ff-c9ff-7737-db7b04f63f30-c725c6aa"
+            href="index.html#"
+            class="investor-card w-inline-block"
+            ><img
+              src="./assets/images/number-3.png"
+              loading="lazy"
+              alt="Dragonfly Capital Logo"
+              height="40"
+              class="investor-logo"
+            />
+            <div class="investor-card-text-wrapper">
+              <h3 class="text-white">PHASE 3</h3>
+              <p class="text-white">Jarvis Chain Mainnet Live</p>
+              <p class="text-white">JAR Airdrop for JC Holders</p>
+              <p class="text-white">Native JAR Dex Trading goes live</p>
+              <p class="text-white">Bridge Release</p>
+            </div>
+          </a>
+        </div>
+      </section>
+      <footer class="footer">
+        <div class="footer-links-wrapper">
+          <a href="#" class="nav-link footer">whitepaper</a
+          ><a href="#" target="_blank" class="nav-link footer">chart</a
+          ><a href="#" target="_blank" class="nav-link footer">buy</a>
+        </div>
+        <div class="footer-links-wrapper">
+          <a href="#" target="_blank" class="nav-link footer">telegram</a
+          ><a href="#" target="_blank" class="nav-link footer">twitter</a
+          ><a href="#" target="_blank" class="nav-link footer">medium</a>
+        </div>
+      </footer>
+    </div>
+    <div class="popup wf-section">
+      <img
+        src="https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63ac2f788af6f9126af92df5_image.png"
+        loading="lazy"
+        width="64"
+        data-w-id="366a6a75-429d-ead3-2e94-514eb45132bf"
+        alt=""
+        class="popup__exit"
+      />
+      <div class="popup__wrapper">
+        <img
+          src="https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63ac2d087edd8d1ce8f6dc9a_small.jpg"
+          loading="lazy"
+          sizes="100vw"
+          srcset="
+            https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63ac2d087edd8d1ce8f6dc9a_small-p-500.jpg  500w,
+            https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63ac2d087edd8d1ce8f6dc9a_small-p-800.jpg  800w,
+            https://assets.website-files.com/63a45f17a1012bad2a25c6a3/63ac2d087edd8d1ce8f6dc9a_small.jpg       1024w
+          "
+          alt=""
+          class="popup__image"
+        />
+        <h1 class="margin-bottom-0">Don&#x27;t miss out!</h1>
+        <h3 class="margin-top-10 margin-bottom-20">
+          You can win $5k worth of $BEEP
+        </h3>
+        <p class="margin-bottom-20">
+          That&#x27;s right, we&#x27;re giving one lucky<br />person the chance
+          to win $5k worth of<br />$BEEP. Ends 7pm UTC, 31st December
+        </p>
+        <a href="index.html#" class="button w-button">win $5k of $beep!</a>
+      </div>
+    </div>
+    <script
+      src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=63a45f17a1012bad2a25c6a3"
+      type="text/javascript"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="./assets/js/webflow.bebb1a107.js"
+      type="text/javascript"
+    ></script>
+    <!--[if lte IE 9
+      ]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script
+    ><![endif]-->
+  </body>
+</html>
