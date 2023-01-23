@@ -1,0 +1,31 @@
+.accordion .accordion__container {
+  position: relative;
+  margin: 10px 10px;
+}
+
+.accordion .label {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.accordion .label::after {
+  content: "+";
+  float: right;
+  margin-left: 5px;
+}
+
+.accordion .accordion__content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+}
+
+.accordion hr {
+  width: 100;
+  margin-left: 0;
+  border: 1px solid grey;
+}
+
+.accordion__container.active .label::after {
+    content: "-";
+}
